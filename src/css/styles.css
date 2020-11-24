@@ -1,3 +1,25 @@
 /* 
-    Write your custom CSS here and also abstract your Tailwind css using @apply
+    Write your custom CSS here
 */
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 4fr;
+  grid-template-areas:
+    'topnav topnav'
+    'sidenav content'
+    'sidenav content';
+}
+
+.topnav {
+  grid-area: topnav;
+}
+
+.sidenav {
+  grid-area: sidenav;
+}
+
+.content {
+  grid-area: content;
+}

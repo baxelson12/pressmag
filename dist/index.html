@@ -2,12 +2,419 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="height=device-height, 
+              width=device-width, initial-scale=1.0, 
+              minimum-scale=1.0, maximum-scale=1.0, 
+              user-scalable=no, target-densitydpi=device-dpi"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Bundle -->
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <title>Tailwind Boilerplate</title>
+
+    <title>PressMag</title>
   </head>
 
-  <body class="bg-red-500"></body>
+  <body class="w-screen font-sans text-gray-900 dark:bg-gray-900">
+    <!-- Sidenav -->
+    <div
+      id="menu"
+      class="w-screen-75 sm:w-screen-25 h-screen fixed top-0 left-0 transform -translate-x-full z-30 bg-white dark:bg-gray-900 transition-transform duration-500 ease-in-out"
+    >
+      <div class="px-4">
+        <!-- Heading -->
+        <div class="my-8 dark:text-white">
+          <h1 class="mb-4 font-bold text-black dark:text-white text-xl">PressMag</h1>
+          <p class="text-sm text-gray-400">
+            Every week, our staff personally hand-picks some of the best new website themes from our
+            collection.
+          </p>
+        </div>
+        <!-- Links -->
+        <ul class="-mx-4 mb-8 border-b border-gray-300 text-gray-400 font-medium">
+          <li class="py-3 px-4 border-t border-gray-300">
+            <a href="#" aria-label="homepage">Homepages</a>
+          </li>
+          <li class="py-3 px-4 border-t border-gray-300">
+            <a href="#" aria-label="Blog Pages">Blog Pages</a>
+          </li>
+          <li class="py-3 px-4 border-t border-gray-300">
+            <a href="#" aria-label="Category Page">Category Page</a>
+          </li>
+          <li class="py-3 px-4 border-t border-gray-300">
+            <a href="#" aria-label="Tag Page">Tag Page</a>
+          </li>
+          <li class="py-3 px-4 border-t border-gray-300">
+            <a href="#" aria-label="Author Page">Author Page</a>
+          </li>
+          <li class="py-3 px-4 border-t border-gray-300">
+            <a href="#" aria-label="About Us">About Us</a>
+          </li>
+          <li class="py-3 px-4 border-t border-gray-300">
+            <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
+          </li>
+        </ul>
+        <!-- Socials -->
+        <div class="flex mb-5 space-x-2 justify-center">
+          <div class="bg-blue-500 h-12 w-12 flex items-center justify-center">
+            <a href="#" class="text-2xl text-white" aria-label="Facebook">F</a>
+          </div>
+          <div class="bg-green-400 h-12 w-12 flex items-center justify-center">
+            <a href="#" class="text-2xl text-white" aria-label="Phone">P</a>
+          </div>
+          <div class="bg-blue-400 h-12 w-12 flex items-center justify-center">
+            <a href="#" class="text-2xl text-white" aria-label="Twitter">T</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Backdrop (for sidenav) -->
+    <div
+      id="backdrop"
+      class="hidden fixed inset-0 z-0 overflow-hidden bg-gray-800 opacity-0 transition-opacity duration-500 ease-in-out"
+    ></div>
+    <!-- Main nav -->
+    <nav
+      class="fixed top-0 w-full flex justify-between px-4 py-4 gap-x-2 bg-white dark:bg-gray-900 dark:text-white shadow-md opacity-95 z-10"
+    >
+      <!-- Menu burger -->
+      <div class="flex items-center justify-center">
+        <a href="#" id="hamburger" class="h-6 w-6" aria-label="Side menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </a>
+      </div>
+      <!-- Heading -->
+      <div class="flex flex-grow items-center mx-6 font-bold text-black dark:text-white text-xl">
+        <h1>PressMag</h1>
+      </div>
+      <!-- Actions -->
+      <div class="flex items-center space-x-8">
+        <a href="#" id="switch" class="h-6 w-6" aria-label="Night mode">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+          </svg>
+        </a>
+        <a href="#" class="h-6 w-6" aria-label="Search">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </a>
+      </div>
+    </nav>
+    <!-- Content container -->
+    <div class="container mx-auto mt-16 px-4">
+      <!-- Slider main container -->
+      <div class="swiper-container py-4 w-full">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide relative min-h-96 max-w-md">
+            <img src="assets/imgs/splash1.jpg" class="object-cover min-h-96" alt="Swiper image" />
+            <div class="absolute bottom-0 left-0 px-4 py-4">
+              <h3 class="px-2 inline-block text-sm uppercase bg-blue-400 text-white">Technology</h3>
+              <h2 class="my-3 text-2xl font-bold text-white leading-none">
+                A closer look at the new Apple Watches features
+              </h2>
+              <span class="font-light text-gray-200 text-xs">September 28, 2020</span>
+            </div>
+          </div>
+          <div class="swiper-slide relative min-h-96 max-w-md">
+            <img src="assets/imgs/splash2.jpg" class="object-cover min-h-96" alt="Swiper image" />
+            <div class="absolute bottom-0 left-0 px-4 py-4">
+              <h3 class="px-2 inline-block text-sm uppercase bg-green-400 text-white">Science</h3>
+              <h2 class="my-3 text-2xl font-bold text-white leading-none">
+                A closer look at the new Apple Watches features
+              </h2>
+              <span class="font-light text-gray-200 text-xs">September 28, 2020</span>
+            </div>
+          </div>
+          <div class="swiper-slide relative min-h-96 max-w-md">
+            <img src="assets/imgs/splash3.jpg" class="object-cover min-h-96" alt="Swiper image" />
+            <div class="absolute bottom-0 left-0 px-4 py-4">
+              <h3 class="px-2 inline-block text-sm uppercase bg-purple-400 text-white">
+                Life & Arts
+              </h3>
+              <h2 class="my-3 text-2xl font-bold text-white leading-none">
+                A closer look at the new Apple Watches features
+              </h2>
+              <span class="font-light text-gray-200 text-xs">September 28, 2020</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="-mx-4 px-4 py-4 bg-gray-50 dark:bg-gray-800 dark:text-white">
+        <!-- Heading -->
+        <div class="mb-6">
+          <h2 class="text-xl font-bold">Most Viewed</h2>
+          <h3 class="text-sm text-gray-400">Read the latest news across the globe</h3>
+        </div>
+        <section>
+          <!-- Item -->
+          <div class="flex pb-4 mb-4 border-b border-gray-300">
+            <div class="w-3/4 flex flex-col justify-center px-3">
+              <span class="text-green-500 uppercase font-semibold text-xs lg:text-sm 2xl:text-base">
+                <h3>Science</h3>
+              </span>
+              <div class="my-1">
+                <a href="#" class="font-bold lg:text-lg 2xl:text-xl" aria-label="Media item">
+                  Nuclear power: Are we too anxious about the risks of radiation?
+                </a>
+              </div>
+              <span class="text-xs lg:text-sm 2xl:text-base text-gray-400 font-semibold">
+                September 29, 2020
+              </span>
+            </div>
+            <div class="w-1/2 md:w-1/4 my-auto">
+              <div class="relative pb-full">
+                <img
+                  class="absolute top-0 object-cover w-full h-full"
+                  src="assets/imgs/splash1.jpg"
+                  alt="Item image"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Item -->
+          <div class="flex pb-4 mb-4 border-b border-gray-300">
+            <div class="w-3/4 flex flex-col justify-center px-3">
+              <span class="text-blue-500 uppercase font-semibold text-xs lg:text-sm 2xl:text-base">
+                <h3>Technology</h3>
+              </span>
+              <div class="my-1">
+                <a href="#" class="font-bold lg:text-lg 2xl:text-xl" aria-label="Media item">
+                  Google, Facebook and Twitter could face Senate subpoenas
+                </a>
+              </div>
+              <span class="text-xs lg:text-sm 2xl:text-base text-gray-400 font-semibold">
+                September 22, 2020
+              </span>
+            </div>
+            <div class="w-1/2 md:w-1/4 my-auto">
+              <div class="relative pb-full">
+                <img
+                  class="absolute top-0 object-cover w-full h-full"
+                  src="assets/imgs/splash2.jpg"
+                  alt="Item image"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Item -->
+          <div class="flex pb-4 mb-4 border-b border-gray-300">
+            <div class="w-3/4 flex flex-col justify-center px-3">
+              <span class="text-blue-500 uppercase font-semibold text-xs lg:text-sm 2xl:text-base">
+                <h3>Technology</h3>
+              </span>
+              <div class="my-1">
+                <a href="#" class="font-bold lg:text-lg 2xl:text-xl" aria-label="Media item">
+                  Chinese still debating Oracle-TikTok deal: Gasparino
+                </a>
+              </div>
+              <span class="text-xs lg:text-sm 2xl:text-base text-gray-400 font-semibold">
+                September 22, 2020
+              </span>
+            </div>
+            <div class="w-1/2 md:w-1/4 my-auto">
+              <div class="relative pb-full">
+                <img
+                  class="absolute top-0 object-cover w-full h-full"
+                  src="assets/imgs/splash3.jpg"
+                  alt="Item image"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Item -->
+          <div class="flex pb-4 mb-4 border-b border-gray-300">
+            <div class="w-3/4 flex flex-col justify-center px-3">
+              <span
+                class="text-purple-500 uppercase font-semibold text-xs lg:text-sm 2xl:text-base"
+              >
+                <h3>Life & Arts</h3>
+              </span>
+              <div class="my-1">
+                <a href="#" class="font-bold lg:text-lg 2xl:text-xl" aria-label="Media item">
+                  Once upon a picture: Henry Art Gallery takes on storytelling
+                </a>
+              </div>
+              <span class="text-xs lg:text-sm 2xl:text-base text-gray-400 font-semibold">
+                September 26, 2020
+              </span>
+            </div>
+            <div class="w-1/2 md:w-1/4 my-auto">
+              <div class="relative pb-full">
+                <img
+                  class="absolute top-0 object-cover w-full h-full"
+                  src="assets/imgs/splash5.jpg"
+                  alt="Item image"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="-mx-4 px-4 py-4 bg-white dark:bg-gray-900 dark:text-white">
+        <!-- Heading -->
+        <div class="mb-6">
+          <h2 class="text-xl font-bold">Most Commented</h2>
+          <h3 class="text-sm text-gray-400">Read the latest news across the globe</h3>
+        </div>
+        <section>
+          <div class="relative mb-6">
+            <img src="assets/imgs/splash3.jpg" class="object-cover h-96" />
+            <div class="absolute bottom-0 left-0 px-4 py-4">
+              <h3 class="px-2 inline-block text-sm uppercase bg-blue-400 text-white">Science</h3>
+              <h2 class="my-3 text-2xl font-bold text-white leading-none">
+                NASA, Space Force partnership aims to make space safe
+              </h2>
+              <span class="font-light text-gray-200 text-xs">September 12, 2020</span>
+            </div>
+          </div>
+          <!-- Item -->
+          <div class="flex flex-row-reverse pb-4 mb-4 border-b border-gray-300">
+            <div class="w-3/4 flex flex-col justify-center px-3">
+              <!-- These ones don't use the category tags -->
+              <!-- <span class="text-purple-500 uppercase font-semibold text-xs">
+                <h3>Life & Arts</h3>
+              </span> -->
+              <div class="my-1">
+                <a href="#" class="font-bold" aria-label="Media item">
+                  What will happen when COVID-19 is still in your body?
+                </a>
+              </div>
+              <span class="text-xs text-gray-400 font-semibold"> September 4, 2020 </span>
+            </div>
+            <div class="w-1/2 h-32">
+              <img
+                class="object-cover w-full h-32"
+                src="assets/imgs/splash3.jpg"
+                alt="Item image"
+              />
+            </div>
+          </div>
+          <!-- Item -->
+          <div class="flex flex-row-reverse pb-4 mb-4 border-b border-gray-300">
+            <div class="w-3/4 flex flex-col justify-center px-3">
+              <!-- These ones don't use the category tags -->
+              <!-- <span class="text-purple-500 uppercase font-semibold text-xs">
+                <h3>Life & Arts</h3>
+              </span> -->
+              <div class="my-1">
+                <a href="#" class="font-bold" aria-label="Media item">
+                  iOS 14 review: iPhone revolution, iPad evolution
+                </a>
+              </div>
+              <span class="text-xs text-gray-400 font-semibold"> September 4, 2020 </span>
+            </div>
+            <div class="w-1/2 h-32">
+              <img
+                class="object-cover w-full h-32"
+                src="assets/imgs/splash2.jpg"
+                alt="Item image"
+              />
+            </div>
+          </div>
+          <!-- Item -->
+          <div class="flex flex-row-reverse pb-4 mb-4">
+            <div class="w-3/4 flex flex-col justify-center px-3">
+              <!-- These ones don't use the category tags -->
+              <!-- <span class="text-purple-500 uppercase font-semibold text-xs">
+                <h3>Life & Arts</h3>
+              </span> -->
+              <div class="my-1">
+                <a href="#" class="font-bold" aria-label="Media item">
+                  Google to block U.S. election ads after polls close
+                </a>
+              </div>
+              <span class="text-xs text-gray-400 font-semibold"> September 6, 2020 </span>
+            </div>
+            <div class="w-1/2 h-32">
+              <img
+                class="object-cover w-full h-32"
+                src="assets/imgs/splash3.jpg"
+                alt="Item image"
+              />
+            </div>
+          </div>
+          <!-- Item -->
+        </section>
+      </div>
+      <footer class="-mx-4 mt-10 px-4 py-4 bg-white dark:bg-gray-900 dark:text-white">
+        <div class="flex flex-col items-center justify-center">
+          <span class="w-10 border-t border-gray-200 mb-4"></span>
+          <span
+            class="flex flex-grow items-center mx-6 font-bold text-black dark:text-white text-xl"
+          >
+            PressMag
+          </span>
+          <p class="px-6 my-3 mb-5 text-xs text-gray-600 font-light text-center">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry text of the
+            printing and typesetting industry
+          </p>
+          <div class="flex mb-5 space-x-2">
+            <div class="bg-blue-500 h-12 w-12 flex items-center justify-center">
+              <a href="#" class="text-2xl text-white" aria-label="Facebook">F</a>
+            </div>
+            <div class="bg-green-400 h-12 w-12 flex items-center justify-center">
+              <a href="#" class="text-2xl text-white" aria-label="Phone">P</a>
+            </div>
+            <div class="bg-blue-400 h-12 w-12 flex items-center justify-center">
+              <a href="#" class="text-2xl text-white" aria-label="Twitter">T</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between items-center text-xs">
+          <a href="#" aria-label="Privacy policy">Privacy policy</a>
+          <a href="#" aria-label="Terms of service">Terms of Service</a>
+          <a href="#" aria-label="About us">About us</a>
+        </div>
+      </footer>
+    </div>
+  </body>
 
   <script src="./assets/js/main.js"></script>
 </html>
